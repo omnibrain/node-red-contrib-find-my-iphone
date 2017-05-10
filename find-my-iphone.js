@@ -16,7 +16,7 @@ module.exports = function(RED) {
 			icloud.getDevices(function(err, devices) {
 
         // failed to get device information
-				if(err) {
+				if(err || !devices) {
 					node.error('Could not connect to icloud', err);
 					node.status({fill:"red",shape:"dot",text:"Connection failed"});
           setTimeout(function() {
